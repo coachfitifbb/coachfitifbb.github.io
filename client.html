@@ -1054,6 +1054,7 @@
             right: 0;
             z-index: 1000;
             border-bottom: 1px solid #FF0000;
+            width: 100%;
         }
 
         .navbar-container {
@@ -1116,46 +1117,43 @@
 
         /* Main Content Adjustment */
         #mainContent {
-            margin-top: 80px;
+            margin-top: 70px;
+            padding-top: 20px;
+            position: relative;
+            width: 100%;
         }
 
         /* Responsive Navbar */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
+                z-index: 1001;
             }
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 60px; /* Reduced from 70px to match smaller navbar */
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - 60px);
                 background: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
-                padding: 2rem;
+                padding: 1rem;
                 transition: 0.3s;
                 border-right: 1px solid #FF0000;
                 box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
-            }
-
-            .nav-links a {
-                color: #FFD700;
-                border: 1px solid rgba(255, 0, 0, 0.2);
-                width: 100%;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .navbar {
-                padding: 1rem;
+                overflow-y: auto;
+                z-index: 999;
             }
             
-            .menu-toggle span {
-                background: #FFD700;
-                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            #mainContent {
+                margin-top: 60px; /* Adjusted to match navbar height */
+            }
+
+            .profile-container,
+            .messages-container,
+            #calendarView {
+                margin-top: 10px;
             }
         }
 
@@ -1871,13 +1869,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://wa.me/212606581330" target="_blank">
+                        <a href="https://wa.me/212612909289" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/salah_a_e_m/" target="_blank">
+                        <a href="https://www.instagram.com/bodygym194?igsh=Zmo3eWQzMjhwc2lt" target="_blank">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
@@ -2036,7 +2034,7 @@
     <div class="footer-sidebar">
         <p class="copyright">BODY GYM &copy; 2025</p>
         <p class="contact-info">
-            <a href="https://wa.me/212606581330" target="_blank" style="color: #25D366; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 5px;">
+            <a href="https://wa.me/212612909289" target="_blank" style="color: #25D366; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 5px;">
                 <i class="fab fa-whatsapp"></i>
                 WhatsApp
             </a>
