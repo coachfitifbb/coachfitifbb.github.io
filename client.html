@@ -1104,13 +1104,15 @@
             background: none;
             border: none;
             cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
         }
 
         .menu-toggle span {
             display: block;
             width: 25px;
             height: 3px;
-            background: #333;
+            background: #FFD700;
             margin: 5px 0;
             transition: 0.3s;
         }
@@ -1127,33 +1129,46 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
-                z-index: 1001;
             }
 
             .nav-links {
                 position: fixed;
-                top: 60px; /* Reduced from 70px to match smaller navbar */
+                top: 0;
                 left: -100%;
-                width: 100%;
-                height: calc(100vh - 60px);
+                width: 80%;
+                height: 100vh;
                 background: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
-                padding: 1rem;
-                transition: 0.3s;
+                padding: 80px 20px 20px;
+                transition: 0.3s ease;
                 border-right: 1px solid #FF0000;
                 box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
                 overflow-y: auto;
                 z-index: 999;
             }
-            
-            #mainContent {
-                margin-top: 60px; /* Adjusted to match navbar height */
+
+            .nav-links.active {
+                left: 0;
             }
 
-            .profile-container,
-            .messages-container,
-            #calendarView {
-                margin-top: 10px;
+            .nav-links a {
+                padding: 15px;
+                margin: 5px 0;
+                width: 100%;
+                text-align: left;
+            }
+
+            /* Animation pour le bouton menu */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
             }
         }
 
@@ -2323,7 +2338,9 @@
             // Fonction pour basculer le menu mobile
             window.toggleMenu = function() {
                 const navLinks = document.querySelector('.nav-links');
+                const menuToggle = document.querySelector('.menu-toggle');
                 navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
             };
 
             // Afficher la page profile par défaut si l'utilisateur est connecté
